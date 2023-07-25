@@ -9,7 +9,7 @@ pipeline {
 
   stages {
 
-    stage('Checkout Source') {
+    stage('Checkout Source from github') {
       steps {
         git 'https://github.com/BinhTranPhuoc/react-docker-app.git'
       }
