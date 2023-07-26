@@ -2,10 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: deployment #The name of the Kubernetes Deployment to be created in the Kubernetes cluster
+  namespace: devops-tools
   labels:
     app: react-docker-app
 spec:
-  replicas: 2 #The number of pods to be created in the Kubernetes cluster for the React.js application container
+  replicas: 1 #The number of pods to be created in the Kubernetes cluster for the React.js application container
   selector:
     matchLabels:
       app: react-docker-app
@@ -16,6 +17,7 @@ spec:
     spec:
       containers:
       - name: react-docker-app #The name of the react.js application container
-        image: binhtran240297/react-docker-app:latest #The Docker image for building the React.js application container
+        image: binhtran240297/react-docker-app:TAG #The Docker image for building the React.js application container
+        imagePullPolicy: Always
         ports:
-        - containerPort: 3000 #The port for the React.js application   container
+        - containerPort: 80 #The port for the React.js application container
